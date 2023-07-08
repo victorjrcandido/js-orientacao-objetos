@@ -3,11 +3,15 @@ export class ContaCorrente {
     cliente;
 
 
-    _saldo = 0;
+    #saldo = 0;
+
+    get saldo() {
+        return this.#saldo;
+    }
 
     sacar(valor) {
-        if (valor <= this._saldo) {
-            this._saldo -= valor
+        if (valor <= this.#saldo) {
+            this.#saldo -= valor
         } else console.log('Saldo insuficiente');
         return valor;
     }
@@ -17,7 +21,7 @@ export class ContaCorrente {
             console.log('Não é possível depositar valores negativos');
             return;
         }
-        this._saldo += valor
+        this.#saldo += valor
     }
 
     transferir(valor, contaAlvo) {
