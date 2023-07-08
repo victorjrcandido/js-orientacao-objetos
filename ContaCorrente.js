@@ -1,5 +1,8 @@
 export class ContaCorrente {
     agencia;
+    cliente;
+
+
     _saldo = 0;
 
     sacar(valor) {
@@ -15,5 +18,15 @@ export class ContaCorrente {
             return;
         }
         this._saldo += valor
+    }
+
+    transferir(valor, contaAlvo) {
+        if (valor <= 0) {
+            console.log('Não é possível transferir esse valor');
+            return;
+        }
+        this.sacar(valor);
+        contaAlvo.depositar(valor);
+        console.log(`Depositado: ${valor} na ${contaAlvo}`)
     }
 }
