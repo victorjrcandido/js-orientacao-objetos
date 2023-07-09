@@ -1,4 +1,5 @@
 export class ContaCorrente {
+    static quantidadeDeContas = 0;
     agencia;
     #cliente;
 
@@ -15,6 +16,7 @@ export class ContaCorrente {
     constructor(agencia, cliente) {
         this.agencia = agencia;
         this.#cliente = cliente;
+        ContaCorrente.quantidadeDeContas += 1;
     }
 
     sacar(valor) {
