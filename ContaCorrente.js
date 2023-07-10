@@ -2,6 +2,7 @@ export class ContaCorrente {
     static quantidadeDeContas = 0;
     agencia;
     #cliente;
+    totalDepositado = 0;
 
     #saldo = 0;
 
@@ -31,6 +32,7 @@ export class ContaCorrente {
             console.log('Não é possível depositar valores negativos');
             return;
         }
+        this.totalDepositado += valor;
         this.#saldo += valor
     }
 
